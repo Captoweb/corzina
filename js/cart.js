@@ -3,6 +3,7 @@ let cart = {}
 
 
 let cartOut = document.querySelector('.cart-out')
+let totalOut = document.querySelector('.total-out')
 
 function loadCart() {
     if (localStorage.getItem('cart')) {
@@ -11,73 +12,50 @@ function loadCart() {
     } 
     else {
         cartOut.innerHTML = `<div class="alert">Корзина пуста</div>`
+        totalOut.innerHTML = ''
     }
 }
 loadCart()
 
 
 
-// function showCart() {
-//     if (!isEmpty(cart)) {
-//         cartOut.innerHTML = `<div class="alert">Корзина пуста</div>`
-//     } else {
-//         let gds = goods
-//         let out = ''
-//         for (let id in cart) {
-//             out += `<div class="cart">`
-//                 out += `<button class="del mini-btn" data-id="${id}">&#10060;</button>`
-//                 out += `<img src="images\\${gds[id].img}" >` // TypeError: Cannot read properties of undefined (reading 'img')
-//                 out += `id: ${gds[id].id} | `
-//                 out += `${gds[id].name}`
-//                 out += `<h5 class="cost">${gds[id].cost} руб</h5>`
-//                 out += `<button class="minus mini-btn" data-id="${id}">&ndash;</button>`
-//                 out += cart[id]+' шт';
-//                 out += `<button class="plus mini-btn" data-id="${id}">&#43;</button>`
-//                 out += `<h5 class="cost">${cart[id] * gds[id].cost} руб</h5>`
-//             out += `</div>`
-//            console.log(gds[0]) // {id: '1', name: 'Ролик с кнопкой (одно колесо)', cost: '80', description: 'Ролики дверные для душевой кабины с кнопкой, одно колесо.', img: 'rolic1.jpg', …}
-//            console.log(gds[0].id)
-//         }
-//         cartOut.innerHTML = out
-//         delGoods()
-//         minusGoods()
-//         plusGoods()
-//     }
-// }
-
-
-
-function showCart() {
+function showCart()  {
+    
     if (!isEmpty(cart)) {
-        cartOut.innerHTML = `<div class="alert">Корзина пуста</div>`
+        cartOut.innerHTML = `<div class="alert">Корзина пуста</div>` 
+        totalOut.innerHTML = ''
     } else {
-        let gds = goods
-        let out = ''
-        for (let id in cart) {
-            let itemId = parseInt(id)
-            out += `<div class="cart">`
-                out += `<button class="del mini-btn" data-id="${itemId}">&#10060;</button>`
-                out += `<img src="images\\${gds[itemId].img}" >` 
-                out += `id: ${gds[itemId].id} | `
-                out += `${gds[itemId].name}`
-                out += `<h5 class="cost">${gds[itemId].cost} руб</h5>`
-                out += `<button class="minus mini-btn" data-id="${itemId}">&ndash;</button>`
-                out += cart[itemId]+' шт';
-                out += `<button class="plus mini-btn" data-id="${itemId}">&#43;</button>`
-             // убедитесь, что элемент корзины существует, прежде чем пытаться прочитать его свойство стоимости
-                if (gds[itemId]) {
-                    out += `<h5 class="cost">${cart[itemId] * gds[itemId].cost} руб</h5>`
-                } else {
-                    out += `<h5 class="cost">${cart[itemId]} руб</h5>`
-                }
-            out += `</div>`
-        }
-        cartOut.innerHTML = out
-        delGoods()
-        minusGoods()
-        plusGoods()
+    let out = ''
+    let totalCost = 0
+    //let gds = goods
+    for (let idCart in cart) {
+        // console.log(idCart) // id
+        // console.log(cart[idCart]) // кол-во
+        for (let i = 0; i < goods.length; i++) {
+            if (goods[i].id == idCart) {
+                out += `<div class="cart">`
+                    out += `<button class="del mini-btn" data-id="${idCart}">&#10060;</button>`
+                    out += `id: ${idCart} &nbsp;`
+                    out += `<img src="images\\${goods[i].img}" >`
+                    out += `<p>${goods[i].name}</p> `
+                    out += `<h5 class="cost">${goods[i].cost} руб</h5>`
+                    out += `<button class="minus mini-btn" data-id="${idCart}">&ndash;</button>`
+                    out += cart[idCart]+' шт';
+                    out += `<button class="plus mini-btn" data-id="${idCart}">&#43;</button>`
+                    out += `<h5 class="totalCost">${Math.round(cart[idCart] * goods[i].cost)} руб</h5>`
+                    totalCost += Math.round(cart[idCart] * goods[i].cost)
+                out += `</div>`
+            }
+        } 
     }
- }
+
+    cartOut.innerHTML = out
+    totalOut.innerHTML = 'Итого: ' + totalCost + ' руб'
+    delGoods()
+    minusGoods()
+    plusGoods()
+    }
+}
 
 
 function saveCart() {

@@ -24,18 +24,17 @@ function goodsOut() {
 goodsOut() 
 
 
-
-
-
  
 function addToCart() {
     document.querySelectorAll('.add-to-cart')
     .forEach(btn => {
       btn.addEventListener('click', function() {
-          let id = (this.getAttribute("data-id"))
+          let id = this.getAttribute("data-id")
           //console.log(id)
           if (cart[id] == undefined) {
             cart[id] = 1
+            this.setAttribute('disabled', '')
+            this.textContent = 'В корзине'
           }
           else {
             cart[id]++
@@ -54,18 +53,12 @@ function saveCart() {
 
 
 function showMiniCart() {
-   // let cartOut = document.querySelector('.mini-cart')
     let out = ''
         for (let key in cart) {
             out += key + ' -- '+ cart[key] + 'шт' + ' | '
            // console.log(out)
         }
-        document.querySelector('.mini-cart').innerHTML = out
-        // cartOut.innnerHTML += 
-        // `hello
-        // `
-        // console.log(item.id)
-    
+        document.querySelector('.mini-cart').innerHTML = out  
 }
 
 
