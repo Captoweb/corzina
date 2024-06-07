@@ -1,30 +1,36 @@
 import {goods} from '../goods.js' 
-//console.log(goods)
-//console.log(goods[0]) // работает
+
 let cart = {}
 
 let cards = document.querySelector('.cards')
 
 function goodsOut() {
+    let cartItems = JSON.parse(localStorage.getItem('cart')) 
     goods.map(item => {
-        // куда вывести
+        let isItemInCart = cartItems.hasOwnProperty(item.id)
+        let quantity = cartItems[item.id] || 0
         cards.innerHTML +=
             `<div class="card">
                 <p>id: ${item.id} category: ${item.category}</p>
                 <h3 class="card-title">${item.name}</h3>
                 <p>${item.description}</p>
                 <img class="img" src="images/${item.img}" alt="">
-                <h4>${item.cost} рублей</h4> 
-                <button class="button button-primary-text add-to-cart" data-id="${item.id}">Купить</button>
-             </div>
-            `
+                <h4>${item.cost} рублей</h4>
+                
+                ${isItemInCart ? 
+                    `<button disabled class="button button-primary-text add-to-cart" data-id=${item.id}>В корзине </button><span>&nbsp; ${quantity} шт</span>` :
+                    '<button class="button button-primary-text add-to-cart" data-id="' + item.id + '">Купить</button>'}
+             </div>`
+            
     })
+    
+    buttonLock()
 }
 
-goodsOut() 
+console.log('функция goodsOut()')
+goodsOut()
 
 
- 
 function addToCart() {
     document.querySelectorAll('.add-to-cart')
     .forEach(btn => {
@@ -69,6 +75,33 @@ function loadCart() {
     }
 }
 loadCart()
+
+
+function buttonLock() {
+    document.querySelectorAll('.add-to-cart')
+    .forEach(btn => {
+        btn.addEventListener('click', function() {
+            let id = this.getAttribute("data-id")
+            console.log('id button:', id)
+
+            // тут беру id с локол сторожа
+            let stor = JSON.parse(localStorage.getItem('cart')) 
+            console.log(stor) // {"1":10,"2":5,"3":3}
+
+            for (let cartId in stor) {
+                 if (id == cartId) {
+                     this.setAttribute('disabled', '')
+                     this.textContent = 'В корзине'
+                     console.log('функция работает buttonLock()')
+                     // тут вывести кол-во товара
+                 }
+            }
+        })
+        
+    })
+    
+}
+
 
 
 
