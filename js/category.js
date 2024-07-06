@@ -4,14 +4,20 @@ let cart = {}
 
 let cards = document.querySelector('.cards')
 
-// console.log(goods) // работает
+fetch('../data.php')
+  .then(response => response.json())
+  .then(data => {
+    goodsOut(data)
+  })
+  .catch(error => console.error('Ошибка:', error));
+ // console.log(data);
 
-function goodsOut() {
+function goodsOut(data) {
     let cartItems = ''
     if (localStorage.getItem('cart') != null) {
         cartItems = JSON.parse(localStorage.getItem('cart')) 
     }
-    goods.map(item => {
+    data.forEach(item => {
         let isItemInCart = cartItems.hasOwnProperty(item.id)
         let quantity = cartItems[item.id] || 0
         cards.innerHTML +=
