@@ -1,7 +1,7 @@
 let cat = [ 
     {
         "catName" : "Ролики<br> для душевых кабин",
-        "catImg" : "roliki_menu.jpg",
+        "catImg" : "roliki_menu3.png",
         "href" : "roliki"
     },
     {
