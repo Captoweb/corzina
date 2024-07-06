@@ -34,23 +34,30 @@ function showCart()  {
         for (let i = 0; i < goods.length; i++) {
             if (goods[i].id == idCart) {
                 out += `<div class="cart">`
-                    out += `<button class="del mini-btn" data-id="${idCart}">&#10060;</button>`
-                    out += `id: ${idCart} &nbsp;`
-                    out += `<img src="images\\${goods[i].img}" >`
-                    out += `<p>${goods[i].name}</p> `
-                    out += `<h5 class="cost">${goods[i].cost} руб</h5>`
-                    out += `<button class="minus mini-btn" data-id="${idCart}">&ndash;</button>`
-                    out += cart[idCart]+' шт';
-                    out += `<button class="plus mini-btn" data-id="${idCart}">&#43;</button>`
-                    out += `<h5 class="totalCost">${Math.round(cart[idCart] * goods[i].cost)} руб</h5>`
-                    totalCost += Math.round(cart[idCart] * goods[i].cost)
+                    out += '<div class="left-wrapper">'
+                       
+                        out += `<div class="helper">id: ${idCart}</div>`
+                        out += `<img src="images\\${goods[i].img}" >`
+                        out += '<div class="name-wrapper">'
+                            out += `<p>${goods[i].name}</p> `
+                            out += `<h5 class="cost"><span>Цена за 1 шт: </span>${goods[i].cost} руб</h5>`
+                        out += '</div>'
+                    out += '</div>'
+                    out += '<div class="button-wrapper">'
+                         out += `<button class="minus mini-btn" data-id="${idCart}">&ndash;</button>`
+                        out += cart[idCart]+' шт';
+                        out += `<button class="plus mini-btn" data-id="${idCart}">&#43;</button>`
+                        out += `<h5 class="totalCost">${Math.round(cart[idCart] * goods[i].cost)} руб</h5>`
+                        totalCost += Math.round(cart[idCart] * goods[i].cost)
+                        out += `<button class="del mini-btn" data-id="${idCart}"><img class="del-img" src="../images/icons/delete.png"></button>`
+                    out += '</div>'
                 out += `</div>`
             }
         } 
     }
 
     cartOut.innerHTML = out
-    totalOut.innerHTML = 'Итого: ' + totalCost + ' руб'
+    totalOut.innerHTML = 'Сумма заказа: ' + totalCost + ' руб'
     delGoods()
     minusGoods()
     plusGoods()

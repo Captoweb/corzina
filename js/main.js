@@ -4,17 +4,22 @@ let cart = {}
 
 let cards = document.querySelector('.cards')
 
+// console.log(goods) // работает
+
 function goodsOut() {
-    let cartItems = JSON.parse(localStorage.getItem('cart')) 
+    let cartItems = ''
+    if (localStorage.getItem('cart') != null) {
+        cartItems = JSON.parse(localStorage.getItem('cart')) 
+    }
     goods.map(item => {
         let isItemInCart = cartItems.hasOwnProperty(item.id)
         let quantity = cartItems[item.id] || 0
         cards.innerHTML +=
             `<div class="card">
-                <p>id: ${item.id} category: ${item.category}</p>
+                <p class="helper">id: ${item.id} | category: ${item.category}</p>
+                <img class="img" src="images/${item.img}" alt="">
                 <h3 class="card-title">${item.name}</h3>
                 <p>${item.description}</p>
-                <img class="img" src="images/${item.img}" alt="">
                 <h4>${item.cost} рублей</h4>
                 
                 ${isItemInCart ? 

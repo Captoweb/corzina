@@ -9,14 +9,19 @@ html {
 }
 
 
-
 body {
     background-color: #ededed;
     min-height: 100vh;
 }
 
 .container {
-    max-width: 1320px;
+    max-width: 1400px;
+    padding: 30px 15px;
+}
+
+.cart_wrapper, .home-menu_wrapper, .cards_wrapper {
+  min-height: calc(100vh - 332px);
+  padding-bottom: 40px;
 }
 
 h3 {
@@ -24,18 +29,26 @@ h3 {
     line-height: 28px;
 }
 
+h2 {
+  text-align: center;
+}
+
 .cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 20px 15px;
 }
 
 .card {
-    width: 340px;
+    width: 320px;
+    padding: 20px;
+    border-radius: 14px;
+    margin: 0;
 }
 
 .card h3 {
-    font-size: 21px;
+    font-size: 20px;
     margin-bottom: 10px;
     color: #222;
     max-width: 280px;
@@ -54,7 +67,7 @@ h3 {
     margin: 0 auto;
     margin-top: 0px;
     margin-bottom: 0px;
-    height: 150px;
+    height: 160px;
     width: auto;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -76,10 +89,15 @@ h3 {
 
   /* ------ cart ------ */
 
+  .cart-title{
+    text-align: center;
+  }
   .cart-out  {
-   display: flex;
-   justify-content: start;
-   flex-direction: column;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   .cart-out img {
@@ -89,14 +107,19 @@ h3 {
 
   .cart {
     display: flex;
-    justify-content: start;
-    height: 100px;
-    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* height: 100px; */
+    height: auto;
+    max-width: 900px;
     border-radius: 8px;
-    margin: 8px;
+    margin: 8px 0;
     align-items: center;
     background-color: #fff;
     box-shadow: 0 4px 12px rgba(224, 224, 224, 0.5);
+    width: 100%;
+    padding: 10px;
+    position: relative;
   }
 
   .cart .cost {
@@ -114,22 +137,146 @@ h3 {
   button.del {
     border: none;
     margin: 0;
-    padding: 0 0 15px 15px;
+    padding: 0px;
     color: tomato;
+    line-height: 10px;
+    height: 25px;
+    position: absolute;
+    top: 10px;
+    right: 8px;
   }
 
 
   .mini-btn {
-    padding: 0 14px;
+    padding: 0 10px;
     font-size: 1.5rem;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 8px;
+    margin-left: 8px;
+    height: 35px;
+    line-height: 26px;
 }
 
 .total-out {
-  float: right;
+  text-align: center;
   font-size: 20px;
   font-weight: 700;
   margin: 12px;
+  margin-top: 30px;
+}
 
+p.helper {
+  font-size: 15px;
+  margin-bottom: -5px;
+}
+
+.name-wrapper {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.name-wrapper p {
+  margin-bottom: 5px;
+  /* max-width: 300px; */
+  max-width: 97%;
+  overflow: hidden;
+  height: 47px;
+}
+.name-wrapper .cost {
+  font-size: 18px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.name-wrapper .cost span {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 260px;
+  margin-left: 10px;
+}
+
+.left-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.cart .helper {
+  position: absolute;
+  /* right: 40px; */
+  top: 8px;
+  margin: 0;
+}
+
+.del .del-img {
+  height: 20px;
+  width: auto;
+  position: absolute;
+  top: 10px;
+  right: 8px;
+}
+
+
+/* -------- footer -------- */
+
+footer {
+  color: #fff;
+}
+.footer_inner {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.footer_inner ul{
+    list-style: none;
+    line-height: 180%;
+}
+
+.footer_title {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+.copyright{
+  text-align: center;
+}
+
+
+/* -------- home page -------- */
+
+.home-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px 15px;
+}
+
+
+.home-menu-card {
+  background-color: #fff;
+  width: 300px;
+  height: 280px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(224, 224, 224, 0.5);
+}
+
+.home-menu-card:hover {
+  box-shadow: 0 10px 8px -10px rgba(0, 0, 0, 0.75);
+}
+
+.home-menu-name {
+  font-size: 20px;
+  color: #222;
+  font-weight: bold;
+  margin-top: 14px;
+}
+
+.home-menu-img {
+  max-width: 180px;
 }

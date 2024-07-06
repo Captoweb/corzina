@@ -1,0 +1,152 @@
+
+
+@media (max-width: 1309px) { 
+    .cards {
+        justify-content: center;
+    }
+    .card {
+        max-width: 320px;
+        /* min-width: 290px; */
+    }
+}
+
+@media (max-width: 800px) {
+    .footer_inner {
+        display: block;
+    }
+    .nav-links {
+        display: flex;
+    }
+}
+
+
+ @media screen and (max-width: 645px) {
+    .home-menu-card {
+        width: 260px;
+    }
+    .home-menu-name {
+        font-size: 18px;
+    }
+} 
+
+@media screen and (max-width: 565px) {
+    .home-menu-card {
+        width: 220px;
+    }
+    .home-menu-name {
+        font-size: 16px;
+    }
+} 
+
+@media screen and (max-width: 485px) {
+    .home-menu-card {
+        width: 180px;
+        height: 240px;
+    }
+    .home-menu-img {
+        max-width: 130px;
+    }
+    .alert {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 405px) {
+    .home-menu-card {
+        width: 160px;
+        height: 200px;
+    }
+    .home-menu-img {
+        max-width: 100px;
+    }
+    .home-menu-name {
+        line-height: 120%;
+    }
+
+    .cart_wrapper .container {
+        padding: 30px 10px;
+    }
+
+    .nav-container {
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .home-menu-card {
+        width: 150px;
+        height: 190px;
+    }
+   
+}
+
+
+@media screen and (max-width: 365px) {
+    .home-menu-card {
+        width: 145px;
+        height: 185px;
+    }
+    .home-menu-name {
+        font-size: 15px;
+    }
+    .home-menu-name {
+        line-height: 120%;
+    }
+
+    .name-wrapper {
+        font-size: 15px;
+    }
+
+    .nav-links a {
+        padding: 0 20px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+}
+
+
+@media screen and (max-width: 345px) {
+    .home-menu-card {
+        width: 142px;
+        height: 180px;
+    }
+}
+
+
+@media screen and (max-width: 335px) {
+
+    .home-menu_wrapper .container {
+        padding: 30px 10px;
+    }
+  
+    .home-menu-card {
+        width: 135px;
+        height: 175px;
+    }
+    .home-menu-name {
+        font-size: 15px;
+    }
+    .home-menu-name {
+        line-height: 120%;
+    }
+    .home-menu-img {
+        max-width: 80px;
+    }
+
+    .cart_wrapper .container {
+        padding: 30px 6px;
+    }
+    .name-wrapper {
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+    .cart {
+        padding: 8px;
+    }
+
+    .card {
+        max-width: 290px;
+    }
+}
