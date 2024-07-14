@@ -49,7 +49,7 @@ function showCart()  {
                         out += `<button class="plus mini-btn" data-id="${idCart}">&#43;</button>`
                         out += `<h5 class="totalCost">${Math.round(cart[idCart] * goods[i].cost)} руб</h5>`
                         totalCost += Math.round(cart[idCart] * goods[i].cost)
-                        out += `<button class="del mini-btn" data-id="${idCart}"><img class="del-img" src="../images/icons/delete.png"></button>`
+                        out += `<button class="del mini-btn" data-id="${idCart}">&times;</button>`
                     out += '</div>'
                 out += `</div>`
             }

@@ -4,9 +4,21 @@ let cart = {}
 
 let cards = document.querySelector('.cards')
 
+
+// fetch('../data.php')
+//   .then(response => response.json())
+//   .then(data => {
+//       // Вывод данных на страницу
+//       goodsOut(data);
+//       //console.log(data);
+//   })
+//   .catch(error => console.error('Ошибка:', error));
+
+
+
 // console.log(goods) // работает
 
-function goodsOut() {
+function goodsOut(data) {
     let cartItems = ''
     if (localStorage.getItem('cart') != null) {
         cartItems = JSON.parse(localStorage.getItem('cart')) 

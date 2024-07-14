@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mini magaz</title>
-    <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/media.css">
-</head>
-<body>
+<?php require 'header.php' ?>
 
-<nav>
-    <div class="nav-container">
-        <ul class="nav-links">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="home.html">Menu</a></li>
-            <li><a href="cart.html">Корзина</a></li>
-        </ul>
+<div class="home-menu_wrapper">
+    <div class="container">
+        <h2>Каталог</h2>
+        <div class="home-menu"></div> 
     </div>
-</nav>
-<div class="cart_wrapper">
-  <div class="container">
-        <h2 class="cart-title">Корзина</h2>
-        <div class="cart-out"></div>
-        <div class="total-out"></div>
-  </div>
 </div>
 
 <footer>
@@ -53,6 +33,6 @@
     </div>
 </footer>
 
-    <script type="module" src="js/cart.js"></script>
+    <script type="module" src="js/home.js"></script>
 </body>
 </html>
